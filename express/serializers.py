@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Driver, Truck, Trailer, CustomerBroker, Dispatcher, Employee, Load, Stops, OtherPay, Commodities
+from .models import Driver, Truck, Trailer, CustomerBroker, Dispatcher, Employee, Load, Stops, OtherPay, Commodities, LoadTags, EmployeeTags, DispatcherTags, TruckTags, TrailerTags, DriverTags
 
 
 class DriverSerializers(serializers.ModelSerializer):
@@ -60,3 +60,40 @@ class CommoditiesSerializers(serializers.ModelSerializer):
     class Meta:
         model = Commodities
         fields = "__all__"
+
+
+class LoadTagsSerializers(serializers.ModelSerializer):
+    class Meta:
+        model = LoadTags
+        fields = "__all__"
+
+
+class DriverTagsSerializers(serializers.ModelSerializer):
+    class Meta:
+        model = DriverTags
+        fields = "__all__"
+
+
+class TrailerTagsSerializers(serializers.ModelSerializer):
+    class Meta:
+        model = TrailerTags
+        fields = "__all__"
+
+
+class TruckTagsSerializers(serializers.ModelSerializer):
+    class Meta:
+        model = TruckTags
+        fields = "__all__"
+
+
+class EmployeeTagsSerializers(serializers.ModelSerializer):
+    class Meta:
+        model = EmployeeTags
+        fields = "__all__"
+
+
+class DispatcherTagsSerializers(serializers.ModelSerializer):
+    class Meta:
+        model = DispatcherTags
+        fields = "__all__"
+
