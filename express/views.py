@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
-from .models import Driver, Truck, Trailer, CustomerBroker, Dispatcher, Employee, Load, Stops, OtherPay, Commodities
-from .serializers import DriverSerializers, TruckSerializers, TrailerSerializers, CustomerBrokerSerializers, DispatcherSerializers, EmployeeSerializers, LoadSerializers, StopsSerializers, OtherPaySerializers, CommoditiesSerializers
+from .models import Driver, Truck, Trailer, CustomerBroker, Dispatcher, Employee, Load, Stops, OtherPay, Commodities, LoadTags, EmployeeTags, DispatcherTags, TruckTags, TrailerTags, DriverTags
+from .serializers import DriverSerializers, TruckSerializers, TrailerSerializers, CustomerBrokerSerializers, DispatcherSerializers, EmployeeSerializers, LoadSerializers, StopsSerializers, OtherPaySerializers, CommoditiesSerializers, LoadTagsSerializers, TruckTagsSerializers, TrailerTagsSerializers, DispatcherTagsSerializers, EmployeeTagsSerializers, DriverTagsSerializers
 # Create your views here.
 
 class DriverList(ListCreateAPIView):
@@ -102,4 +102,65 @@ class CommoditiesList(ListCreateAPIView):
 class CommoditiesDetail(RetrieveUpdateDestroyAPIView):
     queryset = Commodities.objects.all()
     serializer_class = CommoditiesSerializers
+
+
+class LoadTagsList(ListCreateAPIView):
+    queryset = LoadTags.objects.all()
+    serializer_class = LoadTagsSerializers
+
+
+class LoadTagsDetail(RetrieveUpdateDestroyAPIView):
+    queryset = LoadTags.objects.all()
+    serializer_class = LoadTagsSerializers
+
+
+class EmployeeTagsList(ListCreateAPIView):
+    queryset = EmployeeTags.objects.all()
+    serializer_class = EmployeeTagsSerializers
+
+
+class EmployeeTagsDetail(RetrieveUpdateDestroyAPIView):
+    queryset = EmployeeTags.objects.all()
+    serializer_class = EmployeeTagsSerializers
+
+
+class TrailerTagsList(ListCreateAPIView):
+    queryset = TrailerTags.objects.all()
+    serializer_class = TrailerTagsSerializers
+
+
+class TrailerTagsDetail(RetrieveUpdateDestroyAPIView):
+    queryset = TrailerTags.objects.all()
+    serializer_class = TrailerTagsSerializers
+
+
+class TruckTagsList(ListCreateAPIView):
+    queryset = TruckTags.objects.all()
+    serializer_class = TruckTagsSerializers
+
+
+class TruckTagsDetail(RetrieveUpdateDestroyAPIView):
+    queryset = TruckTags.objects.all()
+    serializer_class = TruckTagsSerializers
+
+
+class DriverTagsList(ListCreateAPIView):
+    queryset = DriverTags.objects.all()
+    serializer_class = DriverTagsSerializers
+
+
+class DriverTagsDetail(RetrieveUpdateDestroyAPIView):
+    queryset = DriverTags.objects.all()
+    serializer_class = DriverTagsSerializers
+
+
+class DispatcherTagsList(ListCreateAPIView):
+    queryset = DispatcherTags.objects.all()
+    serializer_class = DispatcherTagsSerializers
+
+
+class DispatcherTagsDetail(RetrieveUpdateDestroyAPIView):
+    queryset = DispatcherTags.objects.all()
+    serializer_class = DispatcherTagsSerializers
+
 
