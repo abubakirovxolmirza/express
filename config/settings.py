@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-nt_tun=@3mm&fau$^+x2_4^t)fwbbi50ct8p7i)cejv-*)0xco
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['example.com', 'www.example.com', '164.92.253.252']
+ALLOWED_HOSTS = ['example.com', 'www.example.com', '64.226.120.39']
 
 
 
