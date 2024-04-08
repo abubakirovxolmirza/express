@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'express.apps.ExpressConfig',
+    'drf_spectacular',
     'rest_framework',
 ]
 
