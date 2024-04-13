@@ -24,6 +24,8 @@ SECRET_KEY = 'django-insecure-nt_tun=@3mm&fau$^+x2_4^t)fwbbi50ct8p7i)cejv-*)0xco
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
+# CROS_ALLOWED_ORIGINS = ["*"]
+# CSRF_TRUSTED_ORIGINS = ['*']
 
 ALLOWED_HOSTS = ['example.com', 'www.example.com', '64.226.120.39']
 
@@ -45,17 +47,18 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    "corsheaders.middleware.CorsMiddleware",
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    "corsheaders.middleware.CorsMiddleware",
-    "django.middleware.common.CommonMiddleware",
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+CORS_ORIGIN_ALLOW_ALL = True
 
 SPECTACULAR_SETTINGS = {
     'TITLE': 'Express API',
@@ -148,8 +151,6 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CROS_ALLOWED_ORIGINS = ["*"]
-CSRF_TRUSTED_ORIGINS = ['*']
 
 CORS_ALLOW_METHODS = (
     "DELETE",
