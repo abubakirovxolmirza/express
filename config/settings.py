@@ -148,9 +148,8 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CROS_ALLOWED_ORIGINS = [
-    "http://64.226.120.39:8000",
-]
+CROS_ALLOWED_ORIGINS = ["*"]
+CSRF_TRUSTED_ORIGINS = ['*']
 
 CORS_ALLOW_METHODS = (
     "DELETE",
