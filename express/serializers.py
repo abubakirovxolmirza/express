@@ -39,6 +39,7 @@ class EmployeeSerializers(serializers.ModelSerializer):
 
 
 class LoadSerializers(serializers.ModelSerializer):
+
     class Meta:
         model = Load
         fields = "__all__"

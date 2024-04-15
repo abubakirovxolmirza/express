@@ -23,10 +23,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-nt_tun=@3mm&fau$^+x2_4^t)fwbbi50ct8p7i)cejv-*)0xco'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-
-ALLOWED_HOSTS = ['64.226.120.39']
-
+# DEBUG = False
+DEBUG = True
+# ALLOWED_HOSTS = ['64.226.120.39']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -62,7 +62,6 @@ SPECTACULAR_SETTINGS = {
     'DESCRIPTION': 'Your project description',
     'VERSION': '1.0.0',
     'SERVE_INCLUDE_SCHEMA': False,
-    # OTHER SETTINGS
 }
 
 ROOT_URLCONF = 'config.urls'
@@ -98,7 +97,7 @@ DATABASES = {
 
 
 REST_FRAMEWORK = {
-
+    # 'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
     'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
     'PAGE_SIZE': 20
@@ -157,12 +156,12 @@ CORS_ALLOW_METHODS = [
     "PUT",
 ]
 
-CORS_ALLOWED_ORIGINS = [
-    "http://64.226.120.39:8000/api/loadtag",
-    "http://localhost:3000",
-    "http://localhost:3001",
-    "http://localhost:3002",
-]
+# CORS_ALLOWED_ORIGINS = [
+#     "http://64.226.120.39:8000/api/loadtag",
+#     "http://localhost:3000",
+#     "http://localhost:3001",
+#     "http://localhost:3002",
+# ]
 
 CORS_ALLOW_HEADERS = [
     'accept',

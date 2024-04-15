@@ -129,7 +129,7 @@ class Driver(models.Model):
     other_id = models.CharField(max_length=100, blank=True, null=True)
 
     notes = models.TextField(blank=True, null=True)
-    tariff = models.CharField(max_length=100, blank=True, null=True)
+    tariff = models.IntegerField(blank=True, null=True)
     mc_number = models.CharField(max_length=50, blank=True, null=True)
     driver_tags = models.ForeignKey('DriverTags', related_name='drivertags', on_delete=models.CASCADE)
     team_driver = models.CharField(max_length=50, choices=TEAM_DRIVER_CHOICES)
@@ -614,6 +614,20 @@ class CustomerBroker(models.Model):
         return self.company_name
 
 
+class LoadTags(models.Model):
+    TAG_CHOICES = [
+        ('HAZ', 'Haz'),
+        ('DEDICATED LANE', 'Dedicated Lane'),
+        ('HOT LOAD', 'Hot Load'),
+        ('ISSUE', 'Issue'),
+    ]
+
+    tag = models.CharField(max_length=50, choices=TAG_CHOICES)
+
+    def __str__(self):
+        return self.tag
+
+
 class Load(models.Model):
     TAGS_CHOICES = [
         ('HAZ', 'Haz'),
@@ -659,14 +673,14 @@ class Load(models.Model):
     load_pay = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
     driver_pay = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
     total_pay = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
-    per_mile = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
+    per_mile = models.IntegerField(blank=True, null=True)
     mile = models.IntegerField(blank=True, null=True)
     empty_mile = models.IntegerField(blank=True, null=True)
     total_miles = models.IntegerField(blank=True, null=True)
     flagged = models.BooleanField(default=False, blank=True, null=True)
-    flagged_reason = models.CharField(max_length=100, null=True, blank=True)
-    note = models.TextField(null=True, blank=True)
-    chat = models.TextField(null=True, blank=True)
+    flagged_reason = models.CharField(max_length=100, blank=True, null=True)
+    note = models.TextField(blank=True, null=True)
+    chat = models.TextField(blank=True, null=True)
     rate_con = models.FileField()
     bol = models.FileField(blank=True, null=True)
     pod = models.FileField(blank=True, null=True)
@@ -675,20 +689,6 @@ class Load(models.Model):
 
     def __str__(self):
         return f"DT-{self.id}"
-
-
-class LoadTags(models.Model):
-    TAG_CHOICES = [
-        ('HAZ', 'Haz'),
-        ('DEDICATED LANE', 'Dedicated Lane'),
-        ('HOT LOAD', 'Hot Load'),
-        ('ISSUE', 'Issue'),
-    ]
-
-    tag = models.CharField(max_length=50, choices=TAG_CHOICES)
-
-    def __str__(self):
-        return self.tag
 
 
 class Stops(models.Model):
@@ -791,7 +791,7 @@ class OtherPay(models.Model):
     load = models.ForeignKey(Load, on_delete=models.CASCADE, related_name='otherpay')
     pay = models.CharField(max_length=50, choices=PAY_CHOICES)
     type = models.CharField(max_length=50, choices=TYPE_CHOICES)
-    amount = models.IntegerField()
+    amount = models.DecimalField(max_digits=10, decimal_places=2)
     note = models.CharField(max_length=200, blank=True, null=True)
 
 
