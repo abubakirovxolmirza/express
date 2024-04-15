@@ -156,7 +156,7 @@ CORS_ALLOW_METHODS = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    "http://64.226.120.39:8000/api/loadtag",
+    "http://64.226.120.39:8000",
     "http://localhost:3000",
     "http://localhost:3001",
     "http://localhost:3002",
