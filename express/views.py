@@ -2,7 +2,7 @@ from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.response import Response
 from rest_framework import filters
 from django.db import models
-
+from rest_framework.pagination import LimitOffsetPagination
 from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
 from .models import Driver, Truck, Trailer, CustomerBroker, Dispatcher, Employee, Load, Stops, OtherPay, Commodities, LoadTags, EmployeeTags, DispatcherTags, TruckTags, TrailerTags, DriverTags
 from .serializers import DriverSerializers, TruckSerializers, TrailerSerializers, CustomerBrokerSerializers, DispatcherSerializers, EmployeeSerializers, LoadSerializers, StopsSerializers, OtherPaySerializers, CommoditiesSerializers, LoadTagsSerializers, TruckTagsSerializers, TrailerTagsSerializers, DispatcherTagsSerializers, EmployeeTagsSerializers, DriverTagsSerializers
@@ -74,6 +74,7 @@ class LoadList(ListCreateAPIView):
     serializer_class = LoadSerializers
     filter_backends = [filters.SearchFilter]
     search_fields = ['load_status', 'load_id']
+    pagination_class = LimitOffsetPagination
 
     def list(self, request, *args, **kwargs):
         order = request.query_params.get('order', 'asc')
@@ -118,7 +119,13 @@ class LoadList(ListCreateAPIView):
             load['total_driver_charge'] = total_driver_charge
             load['per_total_miles'] = per_total_miles
 
-        return Response(data)
+        page = self.paginate_queryset(queryset)
+        if page is not None:
+            serializer = self.get_serializer(page, many=True)
+            return self.get_paginated_response(serializer.data)
+
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data)
 
 
 class LoadDetail(RetrieveUpdateDestroyAPIView):
@@ -126,6 +133,7 @@ class LoadDetail(RetrieveUpdateDestroyAPIView):
     serializer_class = LoadSerializers
     filter_backends = [filters.SearchFilter]
     search_fields = ['load_status', 'load_id']
+    pagination_class = LimitOffsetPagination
 
     def list(self, request, *args, **kwargs):
         order = request.query_params.get('order', 'asc')
@@ -171,7 +179,13 @@ class LoadDetail(RetrieveUpdateDestroyAPIView):
             load['total_driver_charge'] = total_driver_charge
             load['per_total_miles'] = per_total_miles
 
-        return Response(data)
+        page = self.paginate_queryset(queryset)
+        if page is not None:
+            serializer = self.get_serializer(page, many=True)
+            return self.get_paginated_response(serializer.data)
+
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data)
 
 class StopsList(ListCreateAPIView):
     queryset = Stops.objects.all()
