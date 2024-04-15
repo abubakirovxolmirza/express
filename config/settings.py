@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-nt_tun=@3mm&fau$^+x2_4^t)fwbbi50ct8p7i)cejv-*)0xco'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = Tr
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['64.226.120.39:8000']
 
 
 # Application definition
@@ -156,7 +156,7 @@ CORS_ALLOW_METHODS = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    "http://64.226.120.39:8000/api/loadtag",
+    "http://64.226.120.39:8000",
     "http://localhost:3000",
     "http://localhost:3001",
     "http://localhost:3002",
