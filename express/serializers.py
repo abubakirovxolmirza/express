@@ -39,10 +39,12 @@ class EmployeeSerializers(serializers.ModelSerializer):
 
 
 class LoadSerializers(serializers.ModelSerializer):
-
+    created_by = serializers.ReadOnlyField(source='created_by.nickname')
+    customer_broker = serializers.ReadOnlyField(source='customer_broker.company_name')
+    truck = serializers.ReadOnlyField(source='truck.unit_number')
     class Meta:
         model = Load
-        fields = "__all__"
+        fields = ['id', 'created_by', 'customer_broker', 'truck', 'created_date', 'load_id', 'trip_id', 'driver', 'co_driver', 'dispatcher', 'load_status', 'tags', 'equipment_type', 'trip_status', 'invoice_status', 'trip_bil_status', 'load_pay', 'driver_pay', 'total_pay', 'per_mile', 'mile', 'empty_mile', 'total_miles', 'flagged', 'flagged_reason', 'note', 'chat', 'rate_con', 'bol', 'pod', 'document', 'comercial_invoice']
 
 
 class StopsSerializers(serializers.ModelSerializer):
