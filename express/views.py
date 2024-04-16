@@ -23,30 +23,53 @@ class DriverList(ListCreateAPIView):
     queryset = Driver.objects.all()
     serializer_class = DriverSerializers
 
+    # def perform_create(self, serializer):
+    #     serializer.save(assigned_truck=self.request.load)
+    #     serializer.save(assigned_dispatcher=self.request.load)
+    #     serializer.save(assigned_trailer=self.request.load)
+    #     serializer.save(driver_tags=self.request.load)
+
 
 class DriverDetail(RetrieveUpdateDestroyAPIView):
     queryset = Driver.objects.all()
     serializer_class = DriverSerializers
+
+    # def perform_create(self, serializer):
+    #     serializer.save(assigned_truck=self.request.load)
+    #     serializer.save(assigned_dispatcher=self.request.load)
+    #     serializer.save(assigned_trailer=self.request.load)
+    #     serializer.save(driver_tags=self.request.load)
 
 
 class TruckList(ListCreateAPIView):
     queryset = Truck.objects.all()
     serializer_class = TruckSerializers
 
+    # def perform_create(self, serializer):
+    #     serializer.save(tags=self.request.load)
+
 
 class TruckDetail(RetrieveUpdateDestroyAPIView):
     queryset = Truck.objects.all()
     serializer_class = TruckSerializers
 
+    # def perform_create(self, serializer):
+    #     serializer.save(tags=self.request.load)
 
 class TrailerList(ListCreateAPIView):
     queryset = Trailer.objects.all()
     serializer_class = TrailerSerializers
 
+    # def perform_create(self, serializer):
+    #     serializer.save(tags=self.request.load)
+
 
 class TrailerDetail(RetrieveUpdateDestroyAPIView):
     queryset = Trailer.objects.all()
     serializer_class = TrailerSerializers
+
+    # def perform_create(self, serializer):
+    #     serializer.save(tags=self.request.load)
 
 
 class CustomerBrokerList(ListCreateAPIView):
@@ -63,20 +86,32 @@ class DispatcherList(ListCreateAPIView):
     queryset = Dispatcher.objects.all()
     serializer_class = DispatcherSerializers
 
+    # def perform_create(self, serializer):
+    #     serializer.save(dispatcher_tags=self.request.load)
+
 
 class DispatcherDetail(RetrieveUpdateDestroyAPIView):
     queryset = Dispatcher.objects.all()
     serializer_class = DispatcherSerializers
+
+    # def perform_create(self, serializer):
+    #     serializer.save(dispatcher_tags=self.request.load)
 
 
 class EmployeeList(ListCreateAPIView):
     queryset = Employee.objects.all()
     serializer_class = EmployeeSerializers
 
+    # def perform_create(self, serializer):
+    #     serializer.save(employee_tags=self.request.load)
+
 
 class EmployeeDetail(RetrieveUpdateDestroyAPIView):
     queryset = Employee.objects.all()
     serializer_class = EmployeeSerializers
+
+    # def perform_create(self, serializer):
+    #     serializer.save(employee_tags=self.request.load)
 
 
 class LoadList(ListCreateAPIView):
@@ -86,10 +121,13 @@ class LoadList(ListCreateAPIView):
     search_fields = ['load_status', 'load_id']
     pagination_class = LimitOffsetPagination
 
-    def perform_create(self, serializer):
-        serializer.save(created_by=self.request.load)
-        serializer.save(customer_broker=self.request.load)
-        serializer.save(truck=self.request.load)
+    # def perform_create(self, serializer):
+        # serializer.save(created_by=self.request.load)
+        # serializer.save(customer_broker=self.request.load)
+        # serializer.save(truck=self.request.load)
+        # serializer.save(driver=self.request.load)
+        # serializer.save(dispatcher=self.request.load)
+        # serializer.save(tags=self.request.load)
 
     def list(self, request, *args, **kwargs):
         order = request.query_params.get('order', 'asc')
@@ -162,11 +200,13 @@ class LoadDetail(RetrieveUpdateDestroyAPIView):
     search_fields = ['load_status', 'load_id']
     pagination_class = CustomPagination
 
-    def perform_create(self, serializer):
-        serializer.save(created_by=self.request.load)
-        serializer.save(customer_broker=self.request.load)
-        serializer.save(truck=self.request.load)
-    pagination_class = LimitOffsetPagination
+    # def perform_create(self, serializer):
+    #     serializer.save(created_by=self.request.load)
+    #     serializer.save(customer_broker=self.request.load)
+    #     serializer.save(truck=self.request.load)
+    #     serializer.save(driver=self.request.load)
+    #     serializer.save(dispatcher=self.request.load)
+    #     serializer.save(tags=self.request.load)
 
     def list(self, request, *args, **kwargs):
         order = request.query_params.get('order', 'asc')
@@ -220,35 +260,54 @@ class LoadDetail(RetrieveUpdateDestroyAPIView):
         serializer = self.get_serializer(queryset, many=True)
         return Response(serializer.data)
 
+
 class StopsList(ListCreateAPIView):
     queryset = Stops.objects.all()
     serializer_class = StopsSerializers
+
+    # def perform_create(self, serializer):
+    #     serializer.save(load=self.request.load)
 
 
 class StopsDetail(RetrieveUpdateDestroyAPIView):
     queryset = Stops.objects.all()
     serializer_class = StopsSerializers
 
+    # def perform_create(self, serializer):
+    #     serializer.save(load=self.request.load)
+
 
 class OtherPayList(ListCreateAPIView):
     queryset = OtherPay.objects.all()
     serializer_class = OtherPaySerializers
+
+    # def perform_create(self, serializer):
+    #     serializer.save(load=self.request.load)
 
 
 class OtherPayDetail(RetrieveUpdateDestroyAPIView):
     queryset = OtherPay.objects.all()
     serializer_class = OtherPaySerializers
 
+    # def perform_create(self, serializer):
+    #     serializer.save(load=self.request.load)
+
 
 class CommoditiesList(ListCreateAPIView):
     queryset = Commodities.objects.all()
     serializer_class = CommoditiesSerializers
+
+# def perform_create(self, serializer):
+#         serializer.save(load=self.request.load)
 
 
 class CommoditiesDetail(RetrieveUpdateDestroyAPIView):
     queryset = Commodities.objects.all()
     serializer_class = CommoditiesSerializers
 
+    # def perform_create(self, serializer):
+    #     serializer.save(load=self.request.load)
+        
 
 class LoadTagsList(ListCreateAPIView):
     queryset = LoadTags.objects.all()
