@@ -133,7 +133,6 @@ class LoadList(ListCreateAPIView):
             return self.get_paginated_response(serializer.data)
 
         serializer = self.get_serializer(queryset, many=True)
-<<<<<<< HEAD
         # Include aggregated values in non-paginated response
         for item in serializer.data:
             item['total_load_pay'] = total_load_pay
@@ -141,7 +140,6 @@ class LoadList(ListCreateAPIView):
             item['total_empty_miles'] = total_empty_mile
             item['total_driver_charge'] = total_driver_charge
             item['per_total_miles'] = per_total_miles
-=======
 
         data = serializer.data
         for load in data:
@@ -157,7 +155,6 @@ class LoadList(ListCreateAPIView):
             return self.get_paginated_response(serializer.data)
 
         serializer = self.get_serializer(queryset, many=True)
->>>>>>> origin
         return Response(serializer.data)
 
 
@@ -166,14 +163,12 @@ class LoadDetail(RetrieveUpdateDestroyAPIView):
     serializer_class = LoadSerializers
     filter_backends = [filters.SearchFilter]
     search_fields = ['load_status', 'load_id']
-<<<<<<< HEAD
     pagination_class = CustomPagination
 
     def perform_create(self, serializer):
         serializer.save(created_by=self.request.load)
         serializer.save(customer_broker=self.request.load)
         serializer.save(truck=self.request.load)
-=======
     pagination_class = LimitOffsetPagination
 
     def list(self, request, *args, **kwargs):
@@ -227,7 +222,6 @@ class LoadDetail(RetrieveUpdateDestroyAPIView):
 
         serializer = self.get_serializer(queryset, many=True)
         return Response(serializer.data)
->>>>>>> origin
 
 class StopsList(ListCreateAPIView):
     queryset = Stops.objects.all()
