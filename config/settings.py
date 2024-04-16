@@ -55,6 +55,15 @@ MIDDLEWARE = [
 ]
 
 
+REST_FRAMEWORK = {
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+    'PAGE_SIZE': 20
+
+}
+
+
 SPECTACULAR_SETTINGS = {
     'TITLE': 'Express API',
     'DESCRIPTION': 'Your project description',
@@ -94,6 +103,7 @@ DATABASES = {
 }
 
 
+<<<<<<< HEAD
 REST_FRAMEWORK = {
     'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
@@ -101,6 +111,8 @@ REST_FRAMEWORK = {
 
 }
 
+=======
+>>>>>>> origin
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
 

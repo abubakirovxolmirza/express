@@ -129,7 +129,7 @@ class Driver(models.Model):
     other_id = models.CharField(max_length=100, blank=True, null=True)
 
     notes = models.TextField(blank=True, null=True)
-    tariff = models.IntegerField(blank=True, null=True)
+    tariff = models.FloatField()
     mc_number = models.CharField(max_length=50, blank=True, null=True)
     driver_tags = models.ForeignKey('DriverTags', related_name='drivertags', on_delete=models.CASCADE)
     team_driver = models.CharField(max_length=50, choices=TEAM_DRIVER_CHOICES)
@@ -673,7 +673,7 @@ class Load(models.Model):
     load_pay = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
     driver_pay = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
     total_pay = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
-    per_mile = models.IntegerField(blank=True, null=True)
+    per_mile = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
     mile = models.IntegerField(blank=True, null=True)
     empty_mile = models.IntegerField(blank=True, null=True)
     total_miles = models.IntegerField(blank=True, null=True)
