@@ -2,16 +2,13 @@ from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.response import Response
 from rest_framework import filters
 from django.db import models
-<<<<<<< HEAD
 from rest_framework.response import Response
 from rest_framework.generics import ListCreateAPIView
 from rest_framework import filters
 from .models import Load
 from rest_framework.pagination import PageNumberPagination
 from django.db.models import Sum, ExpressionWrapper, F, DecimalField
-=======
 from rest_framework.pagination import LimitOffsetPagination
->>>>>>> origin
 from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
 from .models import Driver, Truck, Trailer, CustomerBroker, Dispatcher, Employee, Load, Stops, OtherPay, Commodities, LoadTags, EmployeeTags, DispatcherTags, TruckTags, TrailerTags, DriverTags
 from .serializers import DriverSerializers, TruckSerializers, TrailerSerializers, CustomerBrokerSerializers, DispatcherSerializers, EmployeeSerializers, LoadSerializers, StopsSerializers, OtherPaySerializers, CommoditiesSerializers, LoadTagsSerializers, TruckTagsSerializers, TrailerTagsSerializers, DispatcherTagsSerializers, EmployeeTagsSerializers, DriverTagsSerializers
