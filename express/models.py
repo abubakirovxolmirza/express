@@ -111,7 +111,7 @@ class Driver(models.Model):
 
     driver_license_id = models.CharField(max_length=50, blank=True, null=True)
     dl_class = models.CharField(max_length=10, choices=DL_CLASS_STATUS_CHOICES, blank=True, null=True)
-    driver_type = models.CharField(max_length=50, blank=True, null=True)
+    driver_type = models.CharField(max_length=50, blank=True, null=True, choices=DRIVER_TYPE_CHOICES)
     driver_license_state = models.CharField(max_length=50, choices=STATE_CHOICES, blank=True, null=True)
     driver_license_expiration = models.DateField(blank=True, null=True)
 
