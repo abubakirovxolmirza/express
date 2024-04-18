@@ -1,5 +1,11 @@
 from rest_framework import serializers
-from .models import Driver, Truck, Trailer, CustomerBroker, Dispatcher, Employee, Load, Stops, OtherPay, Commodities, LoadTags, EmployeeTags, DispatcherTags, TruckTags, TrailerTags, DriverTags
+from .models import Chat, Driver, Truck, Trailer, CustomerBroker, Dispatcher, Employee, Load, Stops, OtherPay, Commodities, LoadTags, EmployeeTags, DispatcherTags, TruckTags, TrailerTags, DriverTags
+
+
+class ChatSerializers(serializers.ModelSerializer):
+    class Meta:
+        model = Chat
+        fields = "__all__"
 
 
 class DriverSerializers(serializers.ModelSerializer):

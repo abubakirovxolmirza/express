@@ -3,6 +3,10 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 
+class Chat(models.Model):
+    load_id = models.ForeignKey("Load", on_delete=models.CASCADE, related_name='load_id_chat')
+    message = models.CharField(max_length=255)
+
 class Driver(models.Model):
 
     EMPLOYMENT_STATUS_CHOICES = [

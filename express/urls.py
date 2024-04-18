@@ -1,8 +1,9 @@
 from django.urls import path
-from .views import DriverList, TruckList, TrailerList, DispatcherList, CustomerBrokerList, EmployeeList, LoadList, StopsList, OtherPayList, CommoditiesList, DriverTagsList, TruckTagsList, TrailerTagsList, EmployeeTagsList, DispatcherTagsList, LoadTagsList
-from .views import DriverDetail, TruckDetail, TrailerDetail, DispatcherDetail, CustomerBrokerDetail, EmployeeDetail, LoadDetail, StopsDetail, OtherPayDetail, CommoditiesDetail, DriverTagsDetail, TruckTagsDetail, TrailerTagsDetail, EmployeeTagsDetail, DispatcherTagsDetail, LoadTagsDetail
+from .views import DriverList, ChatList, TruckList, TrailerList, DispatcherList, CustomerBrokerList, EmployeeList, LoadList, StopsList, OtherPayList, CommoditiesList, DriverTagsList, TruckTagsList, TrailerTagsList, EmployeeTagsList, DispatcherTagsList, LoadTagsList
+from .views import DriverDetail, ChatDetail, TruckDetail, TrailerDetail, DispatcherDetail, CustomerBrokerDetail, EmployeeDetail, LoadDetail, StopsDetail, OtherPayDetail, CommoditiesDetail, DriverTagsDetail, TruckTagsDetail, TrailerTagsDetail, EmployeeTagsDetail, DispatcherTagsDetail, LoadTagsDetail
 
 urlpatterns = [
+    path('chat/', ChatList.as_view()),
     path('driver/', DriverList.as_view()),
     path('truck/', TruckList.as_view()),
     path('trailer/', TrailerList.as_view()),
@@ -20,6 +21,7 @@ urlpatterns = [
     path('dispatchertag/', DispatcherTagsList.as_view()),
     path('employeetag/', EmployeeTagsList.as_view()),
 
+    path('chat/<int:pk>/', ChatDetail.as_view()),
     path('driver/<int:pk>/', DriverDetail.as_view()),
     path('truck/<int:pk>/', TruckDetail.as_view()),
     path('trailer/<int:pk>/', TrailerDetail.as_view()),
