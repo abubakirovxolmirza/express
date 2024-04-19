@@ -32,6 +32,8 @@ class ChatDetail(RetrieveUpdateDestroyAPIView):
 class DriverList(ListCreateAPIView):
     queryset = Driver.objects.all()
     serializer_class = DriverSerializers
+    filter_backends = [filters.SearchFilter]
+    search_fields = ['driver_status', 'first_name']
 
     # def perform_create(self, serializer):
     #     serializer.save(assigned_truck=self.request.load)
@@ -54,6 +56,8 @@ class DriverDetail(RetrieveUpdateDestroyAPIView):
 class TruckList(ListCreateAPIView):
     queryset = Truck.objects.all()
     serializer_class = TruckSerializers
+    filter_backends = [filters.SearchFilter]
+    search_fields = ['unit_number']
 
     # def perform_create(self, serializer):
     #     serializer.save(tags=self.request.load)
@@ -85,6 +89,8 @@ class TrailerDetail(RetrieveUpdateDestroyAPIView):
 class CustomerBrokerList(ListCreateAPIView):
     queryset = CustomerBroker.objects.all()
     serializer_class = CustomerBrokerSerializers
+    filter_backends = [filters.SearchFilter]
+    search_fields = ['company_name']
 
 
 class CustomerBrokerDetail(RetrieveUpdateDestroyAPIView):
@@ -111,6 +117,8 @@ class DispatcherDetail(RetrieveUpdateDestroyAPIView):
 class EmployeeList(ListCreateAPIView):
     queryset = Employee.objects.all()
     serializer_class = EmployeeSerializers
+    filter_backends = [filters.SearchFilter]
+    search_fields = ['nickname']
 
     # def perform_create(self, serializer):
     #     serializer.save(employee_tags=self.request.load)

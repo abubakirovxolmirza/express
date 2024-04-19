@@ -101,14 +101,14 @@ class Driver(models.Model):
         ('WI', 'Wisconsin'),
         ('WY', 'Wyoming'),
     ]
-    first_name = models.CharField(max_length=100, blank=True, null=True)
+    first_name = models.CharField(max_length=100, blank=True, null=True) #search
     last_name = models.CharField(max_length=100, blank=True, null=True)
     contact_number = models.CharField(max_length=20, blank=True, null=True)
     birth_date = models.DateField(blank=True, null=True)
 
     employment_status = models.CharField(max_length=50, choices=EMPLOYMENT_STATUS_CHOICES, blank=True, null=True)
     telegram_username = models.CharField(max_length=100, blank=True, null=True)
-    driver_status = models.CharField(max_length=50, choices=DRIVER_STATUS_CHOICES, blank=True, null=True)
+    driver_status = models.CharField(max_length=50, choices=DRIVER_STATUS_CHOICES, blank=True, null=True) #search
     company_name = models.CharField(max_length=100, blank=True, null=True)
     email_address = models.EmailField(blank=True, null=True)
     password = models.CharField(max_length=100, blank=True, null=True)
@@ -300,7 +300,7 @@ class Truck(models.Model):
     ]
     make = models.CharField(max_length=100, blank=True, null=True)
     model = models.CharField(max_length=100, blank=True, null=True)
-    unit_number = models.IntegerField(blank=True, null=True)
+    unit_number = models.IntegerField(blank=True, null=True) #search
     plate_number = models.CharField(max_length=50, blank=True, null=True)
     vin = models.CharField(max_length=20, blank=True, null=True)
     year = models.IntegerField(blank=True, null=True)
@@ -414,7 +414,7 @@ class Dispatcher(models.Model):
     ]
     first_name = models.CharField(max_length=50, blank=True, null=True)
     last_name = models.CharField(max_length=50, blank=True, null=True)
-    nickname = models.CharField(max_length=50, blank=True, null=True)
+    nickname = models.CharField(max_length=50, blank=True, null=True) #search
     employee_status = models.CharField(max_length=50, choices=EMPLOYMENT_STATUS_CHOICES, blank=True, null=True)
     mc_number = models.CharField(max_length=50, choices=MC_NUMBER_CHOICES, blank=True, null=True)
     contact_number = models.CharField(max_length=50, blank=True, null=True)
@@ -515,7 +515,7 @@ class Employee(models.Model):
     ]
     company_name = models.CharField(max_length=50, blank=True, null=True)
     last_name = models.CharField(max_length=50, blank=True, null=True)
-    nickname = models.CharField(max_length=50, blank=True, null=True)
+    nickname = models.CharField(max_length=50, blank=True, null=True) #search
     first_name = models.CharField(max_length=50, blank=True, null=True)
     employee_tags = models.ForeignKey('EmployeeTags', related_name='employeetags', on_delete=models.CASCADE, blank=True, null=True)
     email_address = models.EmailField(blank=True, null=True)
@@ -599,7 +599,7 @@ class CustomerBroker(models.Model):
         ('WI', 'Wisconsin'),
         ('WY', 'Wyoming'),
     ]
-    company_name = models.CharField(max_length=50, blank=True, null=True)
+    company_name = models.CharField(max_length=50, blank=True, null=True) #search
     email_address = models.EmailField(blank=True, null=True)
     mc_number = models.CharField(max_length=50, blank=True, null=True)
     pod_file = models.BooleanField(default=False, blank=True, null=True)
