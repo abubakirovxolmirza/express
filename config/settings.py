@@ -28,8 +28,8 @@ DEBUG = True
 # DEBUG = True
 # DEBUG = True
 
-ALLOWED_HOSTS = ['64.226.120.39']
-# ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = ['64.226.120.39']
+ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
