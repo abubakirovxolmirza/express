@@ -600,6 +600,7 @@ class CustomerBroker(models.Model):
         ('WY', 'Wyoming'),
     ]
     company_name = models.CharField(max_length=50, blank=True, null=True) #search
+    contact_number = models.IntegerField(blank=True, null=True)
     email_address = models.EmailField(blank=True, null=True)
     mc_number = models.CharField(max_length=50, blank=True, null=True)
     pod_file = models.BooleanField(default=False, blank=True, null=True)
