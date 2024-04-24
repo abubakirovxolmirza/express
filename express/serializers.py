@@ -67,7 +67,8 @@ class LoadSerializers(serializers.ModelSerializer):
 
     class Meta:
         model = Load
-        fields = ['id', 'created_by', 'customer_broker', 'truck', 'created_date', 'load_id', 'trip_id', 'driver', 'co_driver', 'dispatcher', 'load_status', 'tags', 'equipment_type', 'trip_status', 'invoice_status', 'trip_bil_status', 'load_pay', 'driver_pay', 'total_pay', 'per_mile', 'mile', 'empty_mile', 'total_miles', 'flagged', 'flagged_reason', 'note', 'chat', 'rate_con', 'bol', 'pod', 'document', 'comercial_invoice']
+        fields = "__all__"
+        # fields = ['id', 'created_by', 'customer_broker', 'truck', 'created_date', 'load_id', 'trip_id', 'driver', 'co_driver', 'dispatcher', 'load_status', 'tags', 'equipment_type', 'trip_status', 'invoice_status', 'trip_bil_status', 'load_pay', 'driver_pay', 'total_pay', 'per_mile', 'mile', 'empty_mile', 'total_miles', 'flagged', 'flagged_reason', 'note', 'chat', 'rate_con', 'bol', 'pod', 'document', 'comercial_invoice']
 
 
 class StopsSerializers(serializers.ModelSerializer):
