@@ -11,10 +11,8 @@ def send_email(sender, instance, created, **kwargs):
     if not instance.ai:
         return
     if created:
-        # Parse the PDF to JSON
         json_data = parse_pdf_to_json("genial-venture-420603", "us", "8f10563b5134e1e8", instance.rate_con.path)
 
-        # Update the load_id field with the Bill of Lading Number
         instance.load_id = json_data["load_id"]
         instance.company_name = json_data["carrier_name"]
         instance.created_date = json_data["pickup_date"]

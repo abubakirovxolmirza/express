@@ -140,12 +140,7 @@ class LoadList(ListCreateAPIView):
     pagination_class = LimitOffsetPagination
 
     # def perform_create(self, serializer):
-        # serializer.save(created_by=self.request.load)
-        # serializer.save(customer_broker=self.request.load)
-        # serializer.save(truck=self.request.load)
-        # serializer.save(driver=self.request.load)
-        # serializer.save(dispatcher=self.request.load)
-        # serializer.save(tags=self.request.load)
+    #     serializer.save()
 
     def list(self, request, *args, **kwargs):
         order = request.query_params.get('order', 'asc')

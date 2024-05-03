@@ -72,7 +72,6 @@ def parse_pdf_to_json(project_id: str, location: str, processor_id: str, file_pa
     pickup_date = re.search(r"pickup\s*\n(.*\s*PM)", text)
     pickup_date = pickup_date.group(1) if pickup_date else None
 
-    # Construct a JSON object from the extracted information
     json_data = {
         "carrier_name": carrier_name,
         "backup_contact_name": backup_contact_name,
